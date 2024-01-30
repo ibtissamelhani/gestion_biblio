@@ -29,6 +29,7 @@ return new class extends Migration
                   ->on('books')
                   ->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

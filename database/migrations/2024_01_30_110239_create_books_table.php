@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('total_copies');
             $table->integer('available_copies');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
