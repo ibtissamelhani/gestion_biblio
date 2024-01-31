@@ -104,7 +104,7 @@
                             email
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            phone
+                            role
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Action
@@ -112,42 +112,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-            $userDao = new UserDao();
-            $users = $userDao->getAllUsers();
-            foreach($users as $user){
-            ?>
+                
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <?php echo $user->getFirstName() ?>
                         </th>
                         <td class="px-6 py-4">
-                            <?php echo $user->getLastName() ?>
                         </td>
                         <td class="px-6 py-4">
-                            <?php echo $user->getEmail() ?>
                         </td>
                         <td class="px-6 py-4">
-                            <?php echo $user->getphone() ?>
+                            
                         </td>
                         <td class=" py-4 flex">
                             <button type="button"
                                 class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"><a
-                                    href="EditUser.php?updateId=<?= $user->getId() ?>"
+                                    href="EditUser.php?updateId="
                                     class="font-medium text-white-600 dark:text-blue-500 hover:underline">Edit</a></button>
                             <form method="post" action="../../../app/Controllers/UserController.php">
                                 <input type="hidden" name="id" id="id"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    value="<?php echo $user->getId() ?>">
+                                    value="">
                                 <button name="delete" type="submit"
                                     class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
                             </form>
                         </td>
                     </tr>
-                    <?php
-            }
-        ?>
+                 
                 </tbody>
             </table>
         </div>

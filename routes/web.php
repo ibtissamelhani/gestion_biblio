@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +22,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//book routes
 Route::resource('books', BookController::class);
 
+//user rootes
+Route::resource('users', UserController::class);
+
+//reservation rootes
+Route::resource('reservations', ReservationController::class);
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -33,6 +47,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-
-
