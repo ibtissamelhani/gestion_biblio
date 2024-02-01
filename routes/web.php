@@ -31,6 +31,12 @@ Route::resource('users', UserController::class);
 //reservation rootes
 Route::resource('reservations', ReservationController::class);
 
+//route to admin dashboard 
+Route::get('/admin/dashboard', [adminController::class, 'index'])->name('admin.dashboard');
+
+// route to home
+Route::get('/user/home', [UserController::class, 'home'])->name('home');
+
 Route::post('/logout', function () {
     Auth::logout();
     return redirect('/');

@@ -16,6 +16,10 @@ class UserController extends Controller
         return view('admin.user.index', compact('users'));
     }
 
+    public function home(){
+        return view('user.home');
+    }
+
     public function store(Request $request)
     {
         $request->validate([

@@ -1,4 +1,5 @@
 @include('partials.dashboard')
+aaaaaaaaaaaa
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
         <div class="grid grid-cols-3 gap-4 ">
@@ -16,7 +17,7 @@
                         <div>
                          8
                             <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">
-                                <?= $bookCount ?></h5>
+                              </h5>
                             <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Number of books</p>
                         </div>
                     </div>
@@ -39,7 +40,7 @@
                         <div>
                          6
                             <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">
-                                <?= $userCount ?></h5>
+                             </h5>
                             <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Number of users</p>
                         </div>
                     </div>
@@ -61,7 +62,7 @@
                         <div>
                         5
                             <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">
-                                <?= $resCount ?></h5>
+                                </h5>
                             <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Number of reservation
                             </p>
                         </div>
