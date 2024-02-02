@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Book;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
@@ -17,7 +19,9 @@ class UserController extends Controller
     }
 
     public function home(){
-        return view('user.home');
+        $books = Book::all();
+        $user = Auth::User();
+        return view('user.home', compact('books','user'));
     }
 
     public function store(Request $request)

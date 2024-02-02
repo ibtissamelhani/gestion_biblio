@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -30,7 +31,8 @@ class BookController extends Controller
 
     public function show(Book $book)
     {
-        return view('admin.book.show', compact('book'));
+        $user = Auth::User();
+        return view('user.show', compact('book','user'));
     }
 
     public function edit(Book $book)

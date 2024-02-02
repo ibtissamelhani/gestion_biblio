@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Reservation;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class adminController extends Controller
 {
@@ -14,6 +15,7 @@ class adminController extends Controller
         $books =Book::all();
         $reservations =Reservation::all();
         $users =User::all();
-        return view('admin.dashboard', compact('books','reservations','users'));
+        $user = Auth::User();
+        return view('admin.dashboard', compact('books','reservations','users','user'));
     }
 }
