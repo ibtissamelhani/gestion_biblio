@@ -31,39 +31,45 @@
                     </tr>
                 </thead>
                 <tbody>
-               >
+               @foreach ($reservations as $reservation )
+                   
+               
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            a
+                            {{ $reservation->id }}
                         </th>
                         <td class="px-6 py-4">
-z                        </td>
+                            {{ $reservation->user->first_name}} {{ $reservation->user->last_name}}</td>
                         <td class="px-6 py-4">
-e                        </td>
+                            {{ $reservation->book->title}}
+                        </td>
                         <td class="px-6 py-4">
-f                        </td>
+                            {{ $reservation->reservation_date}}
+                        </td>
                         <td class="px-6 py-4">
-c                        </td>
+                            {{ $reservation->return_date}}
+                        </td>
                         <td class="px-6 py-4">
-                            <span
-                                class="text-lg font-medium text-green-600  dark:text-white">r</span>
-                            <span
-                                class="ms-3 font-medium text-red-600 dark:text-white">n</span>
+                            @if($reservation->is_returnd)
+                            <span class="text-md font-medium text-green-600  dark:text-white">returned</span>
+                            @else
+                            <span class="text-md font-medium text-red-600  dark:text-white">not returned</span>
+                            @endif
                         </td>
                         <td class="px-2 py-4 flex">
-                            <form method="post" action="../../../app/Controllers/ReservationController.php">
-                                <input type="hidden" name="res_id"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    value="">
-                                <input type="hidden" name="book_id"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    value="">
-                                <button name="returnd" type="submit"
-                                    class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">returned</button>
-                            </form>
+                            <a href="{{ route('reservations.edit', $reservation->id) }}">
+                                <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900">edit</button> 
+
+                            </a>
+                                <form action="{{ route('reservations.destroy', $reservation->id) }}" method="post"> 
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">delete</button>
+</form>
                         </td>
                     </tr>
+                    @endforeach
                    </tbody>
             </table>
         </div>

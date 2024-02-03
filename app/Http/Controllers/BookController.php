@@ -11,7 +11,9 @@ class BookController extends Controller
 {
     public function index(){
         $books =Book::all();
-        return view('admin.book.index', compact('books'));
+        $user = Auth::User();
+
+        return view('admin.book.index', compact('books','user'));
     }
 
     public function store(Request $request){ 
