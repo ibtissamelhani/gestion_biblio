@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\adminController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
@@ -32,10 +32,12 @@ Route::resource('users', UserController::class);
 Route::resource('reservations', ReservationController::class);
 
 //route to admin dashboard 
-Route::get('/admin/dashboard', [adminController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
 // route to home
 Route::get('/user/home', [UserController::class, 'home'])->name('home');
+
+
 
 Route::post('/logout', function () {
     Auth::logout();
