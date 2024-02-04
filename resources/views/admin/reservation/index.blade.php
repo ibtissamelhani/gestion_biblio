@@ -40,7 +40,6 @@
                             {{ $reservation->id }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $reservation->user->first_name}} {{ $reservation->user->last_name}}</td>
                         <td class="px-6 py-4">
                             {{ $reservation->book->title}}
                         </td>

@@ -14,7 +14,12 @@
                     <div class="col-span-2">
                         <label for="name"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">reserver</label>
-                            <input type="text" id="disabled-input" aria-label="disabled input" value="{{ $reservation->user->first_name }} {{ $reservation->user->last_name }}" class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="Disabled input" disabled>
+                            <input type="text" id="disabled-input" aria-label="disabled input" value="{{ optional($reservation->user)->first_name }} {{ optional($reservation->user)->last_name }}" class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="Disabled input" disabled>
+                    </div>
+                    <div class="col-span-2">
+                        <label for="name"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">book</label>
+                            <input type="text" id="disabled-input" aria-label="disabled input" value="{{ $reservation->book->title }}" class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="Disabled input" disabled>
                     </div>
                     <div class="col-span-2">
                         <input type="text" id="disabled-input" name="book_id" aria-label="disabled input" value="@if($reservation->is_returnd) Returned @else Not Returned @endif" class="mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed  @if($reservation->is_returnd) bg-green-50 border border-green-500 text-green-700 @else bg-red-50 border border-red-500 text-red-900 text-gray-900 @endif" value="Disabled input" disabled>
@@ -54,3 +59,4 @@
             </form>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>

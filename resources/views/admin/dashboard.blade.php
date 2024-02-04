@@ -15,7 +15,7 @@
                             </svg>
                         </div>
                         <div>
-                         8
+                         {{ $bookCount }}
                             <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">
                               </h5>
                             <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Number of books</p>
@@ -38,7 +38,7 @@
                             </svg>
                         </div>
                         <div>
-                         6
+                         {{ $userCount }}
                             <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">
                              </h5>
                             <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Number of users</p>
@@ -60,7 +60,7 @@
                             </svg>
                         </div>
                         <div>
-                        5
+                        {{ $resCount }}
                             <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">
                                 </h5>
                             <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Number of reservation

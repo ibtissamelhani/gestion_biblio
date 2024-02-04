@@ -1,7 +1,7 @@
 @include('partials.dashboard')
 <div class="p-4 mt-4 sm:ml-64">
     <div class="flex justify-center p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
-        <form method="post" action="{{route('users.update',$user->id)}}" class="p-4 md:p-5">
+        <form method="post" action="{{route('users.update', $user->id)}}" class="p-4 md:p-5">
             @method('put')
             @csrf
             <div class="grid gap-4 mb-4 grid-cols-2">
@@ -59,3 +59,4 @@
         </form>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>

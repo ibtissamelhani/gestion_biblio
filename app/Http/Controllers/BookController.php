@@ -11,9 +11,9 @@ class BookController extends Controller
 {
     public function index(){
         $books =Book::all();
-        $user = Auth::User();
+        $userAuth = Auth::User();
 
-        return view('admin.book.index', compact('books','user'));
+        return view('admin.book.index', compact('books','userAuth'));
     }
 
     public function store(Request $request){ 
@@ -33,13 +33,14 @@ class BookController extends Controller
 
     public function show(Book $book)
     {
-        $user = Auth::User();
-        return view('user.show', compact('book','user'));
+        $userAuth = Auth::User();
+        return view('user.show', compact('book','userAuth'));
     }
 
     public function edit(Book $book)
     {
-        return view('admin.book.edit', compact('book'));
+        $userAuth = Auth::user();
+        return view('admin.book.edit', compact('book','userAuth'));
     }
 
     public function update(Request $request, Book $book)

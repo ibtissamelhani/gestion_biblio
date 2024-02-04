@@ -15,8 +15,8 @@ class UserController extends Controller
 {
     public function index(){
         $users =User::all();
-        $user = Auth::User();
-        return view('admin.user.index', compact('users','user'));
+        $userAuth = Auth::User();
+        return view('admin.user.index', compact('users','userAuth'));
     }
 
     public function home(){
@@ -33,7 +33,6 @@ class UserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', Password::defaults()],
         ]);
-        
 
         $user = User::create([
             'first_name' => $request->first_name,
@@ -49,7 +48,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $roles = Role::all();
-        return view('admin.user.edit', compact('user','roles'));
+        $userAuth = Auth::user();
+        return view('admin.user.edit', compact('user','roles','userAuth'));
     }
 
     public function update(Request $request, User $user)

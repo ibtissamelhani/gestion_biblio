@@ -15,7 +15,11 @@ class AdminController extends Controller
         $books =Book::all();
         $reservations =Reservation::all();
         $users =User::all();
-        $user = Auth::User();
-        return view('admin.dashboard', compact('books','reservations','users','user'));
+        $userAuth = Auth::User();
+
+        $userCount = User::count();
+        $resCount = Reservation::count();
+        $bookCount = Book::count();
+        return view('admin.dashboard', compact('books','reservations','users','userAuth','bookCount','resCount','userCount'));
     }
 }
