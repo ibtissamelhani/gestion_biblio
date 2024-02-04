@@ -21,8 +21,8 @@ class UserController extends Controller
 
     public function home(){
         $books = Book::all();
-        $user = Auth::User();
-        return view('user.home', compact('books','user'));
+        $userAuth = Auth::User();
+        return view('user.home', compact('books','userAuth'));
     }
 
     public function store(Request $request)
@@ -63,5 +63,14 @@ class UserController extends Controller
             $user->delete();
             return redirect()->route('users.index');
         }
+        // get user's reservations 
+    public function getUserReservations()
+    {
+        $userAuth = Auth::user();
+    
+        $reservations = $userAuth->reservations;
+    
+        return view('user.reservations', compact('reservations','userAuth'));
+    }
 }
 

@@ -1,5 +1,5 @@
-{{-- <x-app-layout> --}}
-  @include('partials.navbar')
+<x-app-layout>
+  
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
@@ -23,4 +23,4 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-{{-- </x-app-layout> --}}
+</x-app-layout>
